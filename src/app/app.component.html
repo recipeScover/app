@@ -1,1 +1,16 @@
+
+
 <rsc-main></rsc-main>
+
+
+<div *ngFor="let category of results.categories">
+    <ul>
+           <li> <img [src]="category.strCategoryThumb"></li>
+           <li>{{category.idCategory}}</li>
+           <li>{{category.strCategory}}</li>
+           <li> {{category.strCategoryDescription}}</li>
+    </ul>
+        
+    
+
+</div>

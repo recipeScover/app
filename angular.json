@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "recipeScover"
+  "defaultProject": "recipeScover",
+  "cli": {
+    "analytics": "f4338c05-e409-4777-bdee-223c66d13849"
+  }
 }
