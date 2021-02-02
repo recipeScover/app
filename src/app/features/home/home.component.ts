@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceRscService } from '../../model/service-rsc.service';
 
 @Component({
   selector: 'rsc-home',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  public results : any;
+
+
+
+  constructor(private serviceRsc : ServiceRscService) { }
 
   ngOnInit(): void {
+    this.serviceRsc.getAllCategories()
+    .subscribe(res => {this.results = res;})
+  
   }
 
 }
