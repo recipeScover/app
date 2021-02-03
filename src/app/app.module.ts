@@ -6,11 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list'
+
+import { LayoutModule } from '@angular/cdk/layout';
+import { CourseDialogComponentComponent } from './features/course-dialog-component/course-dialog-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CourseDialogComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -18,7 +21,8 @@ import {MatGridListModule} from '@angular/material/grid-list'
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
-    MatGridListModule
+
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
