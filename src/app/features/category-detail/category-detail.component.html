@@ -1,0 +1,32 @@
+
+<!-- <img [src]="selectedCategory.meals[0].strMealThumb"> -->
+<!-- <p>{{selectedCategory.meals[0].strMeal}}</p> -->
+
+<!--definition grid container-->
+<div class="grid-container" style="margin-top: 20px;" >
+    <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
+    <button mat-raised-button class="back" color="primary" routerLink="/home" >Back</button>
+      <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="310px" >
+        <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+          <ng-container *ngFor="let category of selectedCategory.meals">
+            <!--ng for for all type of cards definited in home.compnent.ts-->
+        <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+          <!--generate card-->    
+          <mat-card class="dashboard-card">
+            <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+            <mat-card-content class="dashboard-card-content">
+              <!--content of card: title, img, description and botton detail-->
+              <mat-card-title class="center">
+                <h2><b>{{category.strMeal}}</b></h2>
+              </mat-card-title>            
+                  <img mat-card-lg-image  [src]="category.strMealThumb">
+                <mat-card-footer>
+                <button mat-raised-button color="warn">Detail</button>
+              </mat-card-footer>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      </ng-container>
+      </mat-grid-list>
+  
+  </div>

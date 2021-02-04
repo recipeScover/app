@@ -23,7 +23,7 @@ export class ServiceRscService {
     
   }
 
-  getFilterByCategory(name: string): Observable<ICategories>{
+  getFilterByCategory(name: any): Observable<ICategories>{
     return this.http.get<ICategories>(`${environment.apiUrl}/filter.php?c=${name}`);
     
   }

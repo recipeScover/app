@@ -1,7 +1,7 @@
 <!--definition grid container-->
 <div class="grid-container" style="margin-top: 20px;" >
   <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
-    <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="370px">
+    <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="370px" >
       <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
         <ng-container *ngFor="let category of results.categories">
           <!--ng for for all type of cards definited in home.compnent.ts-->
@@ -19,7 +19,7 @@
                 {{category.strCategoryDescription}}
               </div>
               <mat-card-footer>
-              <button mat-raised-button color="warn">Detail</button>
+              <button mat-raised-button color="warn" [routerLink]="['/category-detail', category.strCategory]">Detail</button>
             </mat-card-footer>
           </mat-card-content>
         </mat-card>
