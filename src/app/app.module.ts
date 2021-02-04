@@ -8,7 +8,7 @@ import { CoreModule } from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { CourseDialogComponentComponent } from './features/course-dialog-component/course-dialog-component.component';
+import { CourseDialogComponentComponent } from './shared/course-dialog-component/course-dialog-component.component';
 
 @NgModule({
   declarations: [

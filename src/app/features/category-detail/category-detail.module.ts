@@ -22,7 +22,8 @@ import { CategoryDetailComponent } from './category-detail.component';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ]
 })
 export class CategoryDetailModule { }

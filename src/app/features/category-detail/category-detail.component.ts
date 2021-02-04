@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ServiceRscService } from 'src/app/model/service-rsc.service';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+//import mat material dialog
+import {MatDialog} from '@angular/material/dialog';
+// import Component of our material Dialog
+import { CourseDialogComponentComponent } from 'src/app/shared/course-dialog-component/course-dialog-component.component';
 
 @Component({
   selector: 'rsc-category-detail',
@@ -35,16 +39,24 @@ export class CategoryDetailComponent implements OnInit {
     })
   );
 
-  
-  constructor(private serviceRscService : ServiceRscService, private activatedRoute: ActivatedRoute,  private breakpointObserver: BreakpointObserver) { 
-
+  //in costructor add matDialog to work
+  constructor(private serviceRscService : ServiceRscService, private activatedRoute: ActivatedRoute,  private breakpointObserver: BreakpointObserver, public dialog: MatDialog) { 
        //to implements responsive dashbord grid
        breakpointObserver.observe([
         '(max-width: 599px)'
       ]).subscribe(result => {
         this.isMobile = result.matches;
       });
+  }
 
+ 
+// open dialog with data
+  openDialog(idSelected: any) {
+    this.dialog.open(CourseDialogComponentComponent, {
+      data: {
+        id: idSelected
+      }
+    });
   }
 
   ngOnInit(): void {

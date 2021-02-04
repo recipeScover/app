@@ -1,0 +1,42 @@
+<div   [style.overflow]="'auto'" [style.height.px]="'600'">
+<h1 mat-dialog-title>{{selectedMeal.meals[0].strMeal}}</h1>
+<img mat-card-lg-image [src]="selectedMeal.meals[0].strMealThumb">
+<div mat-dialog-content> 
+<ul>
+  <li *ngIf="selectedMeal.meals[0].strIngredient1!='' && selectedMeal.meals[0].strIngredient1!=null">{{selectedMeal.meals[0].strIngredient1}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient2!='' && selectedMeal.meals[0].strIngredient2!=null">{{selectedMeal.meals[0].strIngredient2}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient3!='' && selectedMeal.meals[0].strIngredient3!=null">{{selectedMeal.meals[0].strIngredient3}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient4!='' && selectedMeal.meals[0].strIngredient4!=null">{{selectedMeal.meals[0].strIngredient4}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient5!='' && selectedMeal.meals[0].strIngredient5!=null">{{selectedMeal.meals[0].strIngredient5}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient6!='' && selectedMeal.meals[0].strIngredient6!=null">{{selectedMeal.meals[0].strIngredient6}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient7!='' && selectedMeal.meals[0].strIngredient7!=null">{{selectedMeal.meals[0].strIngredient7}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient8!='' && selectedMeal.meals[0].strIngredient8!=null">{{selectedMeal.meals[0].strIngredient8}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient9!='' && selectedMeal.meals[0].strIngredient9!=null">{{selectedMeal.meals[0].strIngredient9}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient10!='' && selectedMeal.meals[0].strIngredient10!=null">{{selectedMeal.meals[0].strIngredient10}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient11!='' && selectedMeal.meals[0].strIngredient11!=null">{{selectedMeal.meals[0].strIngredient11}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient12!='' && selectedMeal.meals[0].strIngredient12!=null">{{selectedMeal.meals[0].strIngredient12}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient13!='' && selectedMeal.meals[0].strIngredient13!=null">{{selectedMeal.meals[0].strIngredient13}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient14!='' && selectedMeal.meals[0].strIngredient14!=null">{{selectedMeal.meals[0].strIngredient14}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient15!='' && selectedMeal.meals[0].strIngredient15!=null">{{selectedMeal.meals[0].strIngredient15}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient16!='' && selectedMeal.meals[0].strIngredient16!=null">{{selectedMeal.meals[0].strIngredient16}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient17!='' && selectedMeal.meals[0].strIngredient17!=null">{{selectedMeal.meals[0].strIngredient17}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient18!='' && selectedMeal.meals[0].strIngredient18!=null">{{selectedMeal.meals[0].strIngredient18}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient19!='' && selectedMeal.meals[0].strIngredient19!=null">{{selectedMeal.meals[0].strIngredient19}}</li>
+  <li *ngIf="selectedMeal.meals[0].strIngredient20!='' && selectedMeal.meals[0].strIngredient20!=null">{{selectedMeal.meals[0].strIngredient20}}</li>
+</ul>
+
+<div *ngIf="selectedMeal.meals[0].strYoutube">
+  <iframe id="ytplayer" type="text/html" width="640" height="360"
+  src="https://www.youtube.com/embed/6NgheY-r5t0"
+  frameborder="0"></iframe></div>
+<p>{{selectedMeal.meals[0].strInstructions}}</p>
+<p>{{selectedMeal.meals[0].strYoutube}}</p>
+<div mat-dialog-actions>
+
+
+
+
+  <button mat-button (click)="dialog.closeAll()">Close</button>
+</div>
+
+</div>

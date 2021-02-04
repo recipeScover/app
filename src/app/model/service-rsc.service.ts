@@ -30,6 +30,13 @@ export class ServiceRscService {
 
 
 
+  getIdMeal(id: any): Observable<ICategories>{
+    return this.http.get<ICategories>(`${environment.apiUrl}/lookup.php?i=${id}`);
+  
+  }
+
+
+
 
 
 }

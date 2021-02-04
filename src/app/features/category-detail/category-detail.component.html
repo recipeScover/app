@@ -21,7 +21,7 @@
               </mat-card-title>            
                   <img mat-card-lg-image  [src]="category.strMealThumb">
                 <mat-card-footer>
-                <button mat-raised-button color="warn">Detail</button>
+                <button mat-raised-button color="warn" (click)="openDialog(category.idMeal)">Detail</button>
               </mat-card-footer>
             </mat-card-content>
           </mat-card>

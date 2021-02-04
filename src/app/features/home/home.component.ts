@@ -3,7 +3,6 @@ import { ServiceRscService } from '../../model/service-rsc.service';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { CourseDialogComponentComponent } from '../course-dialog-component/course-dialog-component.component';
 
 
 @Component({
@@ -36,7 +35,7 @@ export class HomeComponent implements OnInit {
     })
   );
 
-  constructor(private serviceRsc : ServiceRscService, private breakpointObserver: BreakpointObserver, public dialog: MatDialog) {
+  constructor(private serviceRsc : ServiceRscService, private breakpointObserver: BreakpointObserver) {
     //to implements responsive dashbord grid
     breakpointObserver.observe([
       '(max-width: 599px)'
@@ -45,9 +44,6 @@ export class HomeComponent implements OnInit {
     });
    }
 
-   openDialog() {
-    this.dialog.open(CourseDialogComponentComponent);
-  }
 
 
   ngOnInit(): void {
