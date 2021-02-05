@@ -8,6 +8,10 @@
     <button mat-raised-button class="back" color="primary" routerLink="/home" >Back</button>
       <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="310px" >
         <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+        <div *ngIf="!selectedCategory">
+          <mat-spinner class="spinner"></mat-spinner>
+          </div>
+          <div *ngIf="selectedCategory">
           <ng-container *ngFor="let category of selectedCategory.meals">
             <!--ng for for all type of cards definited in home.compnent.ts-->
         <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows"> 
@@ -27,6 +31,7 @@
           </mat-card>
         </mat-grid-tile>
       </ng-container>
+    </div>
       </mat-grid-list>
   
   </div>

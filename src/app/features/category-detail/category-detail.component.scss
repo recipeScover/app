@@ -38,6 +38,7 @@
     img{
       width: auto !important;
       border-radius: 50%;
+      margin-bottom: 20px;
     }
   
     //change layout and color of scroll barr container
@@ -65,7 +66,7 @@
     padding: 1%;
     padding-left: 40%;
     padding-right: 40%;
-    margin: 5% !important;
+    margin: auto !important;
     margin-right: 200px;
     background-color: #ff9a01;
   }
@@ -92,8 +93,12 @@ h2{
 
 .mat-raised-button.mat-warn:hover{
 color: blue;
+margin-left: 10%;
 }
 
 .back:hover{
     color: yellow;
+}
+.spinner{
+  margin: 0% auto;
 }

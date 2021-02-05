@@ -1,36 +1,43 @@
+<!--
+<div *ngIf="!selectedMeal">
+  <mat-spinner class="spinner"></mat-spinner>
+  </div>
+  <div *ngIf="selectedMeal">
 <div   [style.overflow]="'auto'" [style.height.px]="'600'">
-<h1 mat-dialog-title>{{selectedMeal.meals[0].strMeal}}</h1>
-<img mat-card-lg-image [src]="selectedMeal.meals[0].strMealThumb">
+<h1 mat-dialog-title>{{meal.strMeal}}</h1>
+<img mat-card-lg-image [src]="meal.strMealThumb">
 <div mat-dialog-content> 
 <ul>
-  <li *ngIf="selectedMeal.meals[0].strIngredient1!='' && selectedMeal.meals[0].strIngredient1!=null">{{selectedMeal.meals[0].strIngredient1}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient2!='' && selectedMeal.meals[0].strIngredient2!=null">{{selectedMeal.meals[0].strIngredient2}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient3!='' && selectedMeal.meals[0].strIngredient3!=null">{{selectedMeal.meals[0].strIngredient3}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient4!='' && selectedMeal.meals[0].strIngredient4!=null">{{selectedMeal.meals[0].strIngredient4}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient5!='' && selectedMeal.meals[0].strIngredient5!=null">{{selectedMeal.meals[0].strIngredient5}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient6!='' && selectedMeal.meals[0].strIngredient6!=null">{{selectedMeal.meals[0].strIngredient6}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient7!='' && selectedMeal.meals[0].strIngredient7!=null">{{selectedMeal.meals[0].strIngredient7}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient8!='' && selectedMeal.meals[0].strIngredient8!=null">{{selectedMeal.meals[0].strIngredient8}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient9!='' && selectedMeal.meals[0].strIngredient9!=null">{{selectedMeal.meals[0].strIngredient9}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient10!='' && selectedMeal.meals[0].strIngredient10!=null">{{selectedMeal.meals[0].strIngredient10}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient11!='' && selectedMeal.meals[0].strIngredient11!=null">{{selectedMeal.meals[0].strIngredient11}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient12!='' && selectedMeal.meals[0].strIngredient12!=null">{{selectedMeal.meals[0].strIngredient12}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient13!='' && selectedMeal.meals[0].strIngredient13!=null">{{selectedMeal.meals[0].strIngredient13}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient14!='' && selectedMeal.meals[0].strIngredient14!=null">{{selectedMeal.meals[0].strIngredient14}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient15!='' && selectedMeal.meals[0].strIngredient15!=null">{{selectedMeal.meals[0].strIngredient15}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient16!='' && selectedMeal.meals[0].strIngredient16!=null">{{selectedMeal.meals[0].strIngredient16}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient17!='' && selectedMeal.meals[0].strIngredient17!=null">{{selectedMeal.meals[0].strIngredient17}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient18!='' && selectedMeal.meals[0].strIngredient18!=null">{{selectedMeal.meals[0].strIngredient18}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient19!='' && selectedMeal.meals[0].strIngredient19!=null">{{selectedMeal.meals[0].strIngredient19}}</li>
-  <li *ngIf="selectedMeal.meals[0].strIngredient20!='' && selectedMeal.meals[0].strIngredient20!=null">{{selectedMeal.meals[0].strIngredient20}}</li>
+  <li *ngIf="meal.strIngredient1!='' && meal.strIngredient1!=null">{{meal.strIngredient1}}</li>
+  <li *ngIf="meal.strIngredient2!='' && meal.strIngredient2!=null">{{meal.strIngredient2}}</li>
+  <li *ngIf="meal.strIngredient3!='' && meal.strIngredient3!=null">{{meal.strIngredient3}}</li>
+  <li *ngIf="meal.strIngredient4!='' && meal.strIngredient4!=null">{{meal.strIngredient4}}</li>
+  <li *ngIf="meal.strIngredient5!='' && meal.strIngredient5!=null">{{meal.strIngredient5}}</li>
+  <li *ngIf="meal.strIngredient6!='' && meal.strIngredient6!=null">{{meal.strIngredient6}}</li>
+  <li *ngIf="meal.strIngredient7!='' && meal.strIngredient7!=null">{{meal.strIngredient7}}</li>
+  <li *ngIf="meal.strIngredient8!='' && meal.strIngredient8!=null">{{meal.strIngredient8}}</li>
+  <li *ngIf="meal.strIngredient9!='' && meal.strIngredient9!=null">{{meal.strIngredient9}}</li>
+  <li *ngIf="meal.strIngredient10!='' && meal.strIngredient10!=null">{{meal.strIngredient10}}</li>
+  <li *ngIf="meal.strIngredient11!='' && meal.strIngredient11!=null">{{meal.strIngredient11}}</li>
+  <li *ngIf="meal.strIngredient12!='' && meal.strIngredient12!=null">{{meal.strIngredient12}}</li>
+  <li *ngIf="meal.strIngredient13!='' && meal.strIngredient13!=null">{{meal.strIngredient13}}</li>
+  <li *ngIf="meal.strIngredient14!='' && meal.strIngredient14!=null">{{meal.strIngredient14}}</li>
+  <li *ngIf="meal.strIngredient15!='' && meal.strIngredient15!=null">{{meal.strIngredient15}}</li>
+  <li *ngIf="meal.strIngredient16!='' && meal.strIngredient16!=null">{{meal.strIngredient16}}</li>
+  <li *ngIf="meal.strIngredient17!='' && meal.strIngredient17!=null">{{meal.strIngredient17}}</li>
+  <li *ngIf="meal.strIngredient18!='' && meal.strIngredient18!=null">{{meal.strIngredient18}}</li>
+  <li *ngIf="meal.strIngredient19!='' && meal.strIngredient19!=null">{{meal.strIngredient19}}</li>
+  <li *ngIf="meal.strIngredient20!='' && meal.strIngredient20!=null">{{meal.strIngredient20}}</li>
 </ul>
 
-<div *ngIf="selectedMeal.meals[0].strYoutube">
-  <iframe id="ytplayer" type="text/html" width="640" height="360"
+<div class="containerTwo">
+<div *ngIf="meal.strYoutube" class="container">
+  <iframe class="responsive-iframe" id="ytplayer" type="text/html" width="640" height="360"
   src="https://www.youtube.com/embed/6NgheY-r5t0"
   frameborder="0"></iframe></div>
-<p>{{selectedMeal.meals[0].strInstructions}}</p>
-<p>{{selectedMeal.meals[0].strYoutube}}</p>
+</div>
+<p>{{meal.strInstructions}}</p>
+<p>{{meal.strYoutube}}</p>
 <div mat-dialog-actions>
 
 
@@ -38,5 +45,132 @@
 
   <button mat-button (click)="dialog.closeAll()">Close</button>
 </div>
+
+</div>
+</div>
+
+ -->
+
+
+
+
+
+<!--definition grid container-->
+<div class="grid-container" style="margin-top: 20px;" >
+  <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
+    <mat-grid-list [cols]="isMobile ? 1 : 3" rowHeight="260px" >
+      <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+      <div *ngIf="!selectedMeal">
+      <mat-spinner class="spinner"></mat-spinner>
+      </div>
+      <div *ngIf="selectedMeal">
+        <ng-container *ngFor="let meal of selectedMeal.meals"> 
+         
+          <!--ng for for all type of cards definited in home.compnent.ts-->
+      <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+        <!--generate card-->    
+        <mat-card class="dashboard-card">
+          <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+          <mat-card-content class="dashboard-card-content">
+            <!--content of card: title, img, description and botton detail-->
+                <img mat-card-lg-image  [src]="meal.strMealThumb">
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+
+
+      <mat-grid-tile *ngFor="let card of cards1 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+        <!--generate card-->    
+        <mat-card class="dashboard-card">
+          <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+          <mat-card-content class="dashboard-card-content">
+            <!--content of card: title, img, description and botton detail-->
+            <mat-card-title class="center">
+              <h2><b>{{meal.strMeal}}</b></h2>
+            </mat-card-title>            
+                <div class="justify-text-description"  [style.overflow]="'auto'">
+                  <div class="column">
+                  <ul>
+                    <li *ngIf="meal.strIngredient1!='' && meal.strIngredient1!=null">{{meal.strMeasure1}} - {{meal.strIngredient1}}</li>
+                    <li *ngIf="meal.strIngredient2!='' && meal.strIngredient2!=null">{{meal.strMeasure2}} - {{meal.strIngredient2}}</li>
+                    <li *ngIf="meal.strIngredient3!='' && meal.strIngredient3!=null">{{meal.strMeasure3}} - {{meal.strIngredient3}}</li>
+                    <li *ngIf="meal.strIngredient4!='' && meal.strIngredient4!=null">{{meal.strMeasure4}} - {{meal.strIngredient4}}</li>
+                    <li *ngIf="meal.strIngredient5!='' && meal.strIngredient5!=null">{{meal.strMeasure5}} - {{meal.strIngredient5}}</li>
+                    <li *ngIf="meal.strIngredient6!='' && meal.strIngredient6!=null">{{meal.strMeasure6}} - {{meal.strIngredient6}}</li>
+                    <li *ngIf="meal.strIngredient7!='' && meal.strIngredient7!=null">{{meal.strMeasure7}} - {{meal.strIngredient7}}</li>
+                   
+                  </ul>
+                  </div>
+                  <div class="column">
+                    <ul>
+                   <li *ngIf="meal.strIngredient8!='' && meal.strIngredient8!=null">{{meal.strMeasure8}} - {{meal.strIngredient8}}</li>
+                    <li *ngIf="meal.strIngredient9!='' && meal.strIngredient9!=null">{{meal.strMeasure9}} - {{meal.strIngredient9}}</li>
+                    <li *ngIf="meal.strIngredient10!='' && meal.strIngredient10!=null">{{meal.strMeasure10}} - {{meal.strIngredient10}}</li>
+                  <li *ngIf="meal.strIngredient11!='' && meal.strIngredient11!=null">{{meal.strMeasure11}} - {{meal.strIngredient11}}</li>
+                  <li *ngIf="meal.strIngredient12!='' && meal.strIngredient12!=null">{{meal.strMeasure12}} - {{meal.strIngredient12}}</li>
+                  <li *ngIf="meal.strIngredient13!='' && meal.strIngredient13!=null">{{meal.strMeasure13}} - {{meal.strIngredient13}}</li>
+                  <li *ngIf="meal.strIngredient14!='' && meal.strIngredient14!=null">{{meal.strMeasure14}} - {{meal.strIngredient14}}</li>
+                </ul>
+                </div>
+                <div class="column">
+                  <ul>
+                  <li *ngIf="meal.strIngredient15!='' && meal.strIngredient15!=null">{{meal.strMeasure15}} - {{meal.strIngredient15}}</li>
+                  <li *ngIf="meal.strIngredient16!='' && meal.strIngredient16!=null">{{meal.strMeasure16}} - {{meal.strIngredient16}}</li>
+                  <li *ngIf="meal.strIngredient17!='' && meal.strIngredient17!=null">{{meal.strMeasure17}} - {{meal.strIngredient17}}</li>
+                  <li *ngIf="meal.strIngredient18!='' && meal.strIngredient18!=null">{{meal.strMeasure18}} - {{meal.strIngredient18}}</li>
+                  <li *ngIf="meal.strIngredient19!='' && meal.strIngredient19!=null">{{meal.strMeasure19}} - {{meal.strIngredient19}}</li>
+                  <li *ngIf="meal.strIngredient20!='' && meal.strIngredient20!=null">{{meal.strMeasure20}} - {{meal.strIngredient20}}</li>
+                </ul>
+              </div>
+              </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+
+      <div *ngIf="meal.strYoutube">
+      <mat-grid-tile *ngFor="let card of cards2 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+        <!--generate card-->    
+        <mat-card class="dashboard-card">
+          <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+          <mat-card-content class="dashboard-card-content">
+            <!--content of card: title, img, description and botton detail-->
+                  <div class="containerTwo">
+                    <div *ngIf="meal.strYoutube" class="container">
+                      <iframe class="responsive-iframe" id="ytplayer" type="text/html" width="540"
+                      src="https://www.youtube.com/embed/6NgheY-r5t0"
+                      frameborder="0"></iframe></div>
+                    </div>
+           </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+        </div>
+
+
+
+
+      <mat-grid-tile *ngFor="let card of cards3 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+        <!--generate card-->    
+        <mat-card class="dashboard-card">
+          <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+          <mat-card-content class="dashboard-card-content">
+            <!--content of card: title, img, description and botton detail-->        
+                <div class="justify-text-description"  [style.overflow]="'auto'" [style.height.px]="'220'">
+                  <p>{{meal.strInstructions}}</p>
+              </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+
+
+
+    </ng-container>
+  </div>
+    </mat-grid-list>
+
+    <div mat-dialog-actions>
+      <button mat-button (click)="dialog.closeAll()">Close</button>
+    </div>
 
 </div>

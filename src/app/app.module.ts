@@ -8,12 +8,15 @@ import { CoreModule } from './core/core.module';
 import {HttpClientModule} from '@angular/common/http';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { CourseDialogComponentComponent } from './shared/course-dialog-component/course-dialog-component.component';
+import { CourseDialogModule } from './shared/course-dialog-component/course-dialog.module';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    CourseDialogComponentComponent
+
   ],
   imports: [
     BrowserModule,
@@ -21,8 +24,8 @@ import { CourseDialogComponentComponent } from './shared/course-dialog-component
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
-
-    LayoutModule
+    LayoutModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

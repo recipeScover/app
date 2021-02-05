@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from "@angular/material/dialog";
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CategoryDetailRoutingModule } from './category-detail-routing.module';
 import { CategoryDetailComponent } from './category-detail.component';
 
@@ -23,7 +23,8 @@ import { CategoryDetailComponent } from './category-detail.component';
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
+    MatProgressSpinnerModule
   ]
 })
 export class CategoryDetailModule { }

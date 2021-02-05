@@ -43,3 +43,25 @@ body { margin: 0; font-family: 'Potta One', cursive !important; }
   font-family: 'Potta One', cursive !important;  
   /* Add !important to overwrite all elements */
 }
+
+
+  //change layout and color of scroll barr container
+  ::-webkit-scrollbar {
+    width: 15px;
+    overflow-y: scroll;
+    background: #faef52;
+    box-shadow: inset 0 0 1px #faef5200;
+}
+   //change and color of scroll barr
+::-webkit-scrollbar-thumb {
+    background: #ff9a01;
+    border-top: 50px;
+    border: 2px solid pink;
+    border-radius: 10px;
+  
+}
+
+.spinner{
+  margin:0 auto;
+}
+

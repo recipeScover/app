@@ -8,10 +8,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
  
 @NgModule({
   declarations: [CourseDialogComponentComponent],
+  exports: [],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -20,7 +23,9 @@ import {MatDialogModule} from "@angular/material/dialog";
     MatIconModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
+
   ]
 })
 
