@@ -1,11 +1,39 @@
 
 <!-- <img [src]="selectedCategory.meals[0].strMealThumb"> -->
 <!-- <p>{{selectedCategory.meals[0].strMeal}}</p> -->
-
 <!--definition grid container-->
-<div class="grid-container" style="margin-top: 20px;" >
-    <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
-    <button mat-raised-button class="back" color="primary" routerLink="/home" >Back</button>
+
+<button mat-raised-button class="back" color="primary" routerLink="/home" >Back</button>
+<div class="grid-container" style="margin-top: 60px;" >
+
+      <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
+      <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="260px">
+        <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+        <div *ngIf="!selectedDescriptionCat">
+          <mat-spinner class="spinner"></mat-spinner>
+          </div>
+          <div *ngIf="selectedDescriptionCat">
+            <!--ng for for all type of cards definited in home.compnent.ts-->
+        <mat-grid-tile *ngFor="let card of cardsOne | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+          <!--generate card-->    
+          <mat-card class="dashboard-card">
+            <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+            <mat-card-content class="dashboard-card-content">
+              <mat-card-title class="center">
+                <h2><b>{{selectedDescriptionCat.strCategory}}</b></h2>
+                <h4  [style.overflow]="'auto'" [style.height.px]="'170'">{{selectedDescriptionCat.strCategoryDescription}}</h4>
+              </mat-card-title>            
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+    </div>
+      </mat-grid-list>
+  
+</div>
+
+<div class="grid-container">
+
+
       <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="310px" >
         <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
         <div *ngIf="!selectedCategory">
@@ -33,5 +61,4 @@
       </ng-container>
     </div>
       </mat-grid-list>
-  
   </div>

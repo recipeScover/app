@@ -37,6 +37,12 @@ export class ServiceRscService {
 
 
 
+  getAllCategoriesTwo(): Observable<ICategories>{
+    return this.http.get<ICategories>(`${environment.apiUrl}/categories.php`);
+    
+  }
+
+
 
 
 }

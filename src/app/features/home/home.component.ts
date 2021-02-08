@@ -3,6 +3,7 @@ import { ServiceRscService } from '../../model/service-rsc.service';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import {TooltipPosition} from '@angular/material/tooltip';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit {
   public isMobile: boolean = false;
 
   // definition all type of card (heigth and width variable into grid in html)
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  cards = this.breakpointObserver.observe(Breakpoints.TabletLandscape).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
@@ -38,7 +39,7 @@ export class HomeComponent implements OnInit {
   constructor(private serviceRsc : ServiceRscService, private breakpointObserver: BreakpointObserver) {
     //to implements responsive dashbord grid
     breakpointObserver.observe([
-      '(max-width: 599px)'
+      '(max-width: 900px)'
     ]).subscribe(result => {
       this.isMobile = result.matches;
     });

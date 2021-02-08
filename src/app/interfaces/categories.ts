@@ -6,5 +6,6 @@ export interface ICategory {
 }
 
 export interface ICategories {
+    strCategory: string | null;
     categories: ICategory[];
 }

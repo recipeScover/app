@@ -31,7 +31,7 @@ export class CourseDialogComponentComponent implements OnInit {
   public isMobile: boolean = false;
 
   // definition all type of card (heigth and width variable into grid in html)
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  cards = this.breakpointObserver.observe(Breakpoints.TabletLandscape).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
@@ -117,7 +117,7 @@ export class CourseDialogComponentComponent implements OnInit {
 
    //to implements responsive dashbord grid
    breakpointObserver.observe([
-    '(max-width: 599px)'
+    '(max-width: 900px)'
   ]).subscribe(result => {
     this.isMobile = result.matches;
   });
