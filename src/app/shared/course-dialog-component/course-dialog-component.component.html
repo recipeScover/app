@@ -52,13 +52,40 @@
  -->
 
 
+ <div class="grid-container" style="margin-top: 20px;" >
+  <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
+    <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="120px" >
+      <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+      <div *ngIf="!selectedMeal">
+      <mat-spinner class="spinner"></mat-spinner>
+      </div>
+      <div *ngIf="selectedMeal">
+        <ng-container *ngFor="let meal of selectedMeal.meals"> 
+         
+          <!--ng for for all type of cards definited in home.compnent.ts-->
+      <mat-grid-tile *ngFor="let card of cards3 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+        <!--generate card-->    
+        <mat-card class="dashboard-card backgroundColor">
+          <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+          <mat-card-content class="dashboard-card-content">
+            <!--content of card: title, img, description and botton detail-->
+            <mat-card-title class="center">
+              <h2 [style.overflow]="'auto'" [style.height.px]="'80'"><b>{{meal.strMeal}}</b></h2>
+            </mat-card-title>    
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+</ng-container>
+</div>
+</mat-grid-list>
+</div>
 
 
 
 <!--definition grid container-->
-<div class="grid-container" style="margin-top: 20px;" >
+<div class="grid-container" >
   <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
-    <mat-grid-list [cols]="isMobile ? 1 : 3" rowHeight="260px" >
+    <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="260px" >
       <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
       <div *ngIf="!selectedMeal">
       <mat-spinner class="spinner"></mat-spinner>
@@ -69,11 +96,13 @@
           <!--ng for for all type of cards definited in home.compnent.ts-->
       <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows"> 
         <!--generate card-->    
-        <mat-card class="dashboard-card">
+        <mat-card class="dashboard-card backgroundColor">
           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
           <mat-card-content class="dashboard-card-content">
             <!--content of card: title, img, description and botton detail-->
+            <div class="img-container">
                 <img mat-card-lg-image  [src]="meal.strMealThumb">
+              </div>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
@@ -86,9 +115,6 @@
           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
           <mat-card-content class="dashboard-card-content">
             <!--content of card: title, img, description and botton detail-->
-            <mat-card-title class="center">
-              <h2><b>{{meal.strMeal}}</b></h2>
-            </mat-card-title>            
                 <div class="justify-text-description"  [style.overflow]="'auto'">
                   <div class="column">
                   <ul>

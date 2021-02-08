@@ -61,7 +61,7 @@ export class CourseDialogComponentComponent implements OnInit {
    
       return [
              // definition card with title and how space take in the grid html
-         { title: 'Card 1', cols: 2, rows: 1 },
+         { title: 'Card 1', cols: 4, rows: 1 },
      
       ];
     })
@@ -78,7 +78,7 @@ export class CourseDialogComponentComponent implements OnInit {
    
       return [
              // definition card with title and how space take in the grid html
-         { title: 'Card 1', cols: 3, rows: 2 },
+         { title: 'Card 1', cols: 5, rows: 2 },
      
       ];
     })
@@ -96,7 +96,7 @@ export class CourseDialogComponentComponent implements OnInit {
    
       return [
              // definition card with title and how space take in the grid html
-         { title: 'Card 1', cols: 3, rows: 1 },
+         { title: 'Card 1', cols: 5, rows: 1 },
      
       ];
     })

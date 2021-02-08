@@ -5,6 +5,7 @@
     overflow-y: scroll;
     background: #faef52;
     box-shadow: inset 0 0 1px #faef5200;
+    border-radius: 10px;
 }
    //change and color of scroll barr
 ::-webkit-scrollbar-thumb {
@@ -12,19 +13,40 @@
     border-radius: 10px;
 }
 
-img{
-    height: auto;
-    border-radius: 5%;
+.backgroundColor{
+  background-color: #ff9a01 ;
 }
+
+  img{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2%;
+    height: auto;
+    width: 90% !important;
+   
+}
+
+.img-container{
+  position: relative;
+  height: 210px;
+}
+
+
 
 p{
     text-align: justify;
     margin-right: 15px;
 }
 
-h1{
-    color: #ff9a01;
+h2{
+    color: #faef52;
+    -webkit-text-stroke: 1.5px red;
 }
+
 
 
 .container{
@@ -43,6 +65,20 @@ h1{
     margin-bottom: 5px;
     margin-top: 5px;
   
+  }
+
+
+  @media (max-width: 1024px) {
+    .containerTwo{
+      width: 100%;
+      height: 190px;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
   }
    
   
@@ -94,27 +130,26 @@ h1{
       display: flex;
       justify-content: space-between;
       text-align: left !important;
+      flex-wrap: wrap;
+      height: 220px;
       
   }
+
+
+  .justify-text-description ul{
+    margin: 0  !important;
+    padding-left: 20px;
+  }
+
+
+
+
+  .justify-text-description li{
+    padding-bottom: 10px;
+  }
+
 
   .column{
       position: relative;
       display: flex;
-  }
-
-  .cdk-virtual-scroll-data-source-example .example-viewport {
-    height: 200px;
-    width: 200px;
-    border: 1px solid black;
-  }
-  
-  .cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .cdk-virtual-scroll-data-source-example .example-item {
-    width: 50px;
-    height: 100%;
-    writing-mode: vertical-lr;
   }
