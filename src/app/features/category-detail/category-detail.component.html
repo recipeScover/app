@@ -37,7 +37,7 @@
       <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="310px" >
         <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
         <div *ngIf="!selectedCategory">
-          <mat-spinner class="spinner"></mat-spinner>
+          <!--<mat-spinner class="spinner"></mat-spinner>-->
           </div>
           <div *ngIf="selectedCategory">
           <ng-container *ngFor="let category of selectedCategory.meals">
