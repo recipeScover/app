@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import {ChangeDetectionStrategy, ViewEncapsulation} from '@angular/core';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 
 @Component({
@@ -104,7 +105,7 @@ export class CourseDialogComponentComponent implements OnInit {
 
 
 
-
+url: any;
 
 
 
@@ -112,7 +113,8 @@ export class CourseDialogComponentComponent implements OnInit {
 
 //  take our data by injection data = data arrived from CategoryDetailComponent
     @Inject(MAT_DIALOG_DATA) public data: any, private serviceRscService : ServiceRscService, 
-    public dialog: MatDialog, private breakpointObserver: BreakpointObserver, public dialogRef: MatDialogRef<any>
+    public dialog: MatDialog, private breakpointObserver: BreakpointObserver, public dialogRef: MatDialogRef<any>,
+    private sanitizer: DomSanitizer
  ) { 
 
    //to implements responsive dashbord grid
@@ -122,18 +124,31 @@ export class CourseDialogComponentComponent implements OnInit {
     this.isMobile = result.matches;
   });
 
-
    }
 
   ngOnInit(): void {
     this.dialogRef.updateSize('80%', '80%');
     // will log the entire data object
   console.log(this.data);
-  this.serviceRscService.getIdMeal(this.data.id).subscribe(dataReceived => {console.log(dataReceived); this.selectedMeal = dataReceived});
-  setTimeout(()=>this.showContent=true, 2000);
 
-  }
 
+
+  this.serviceRscService.getIdMeal(this.data.id).pipe(
+    map( data => 
+      data.meals.map(element => {
+        if(element.strYoutube || element.strYoutube!=""){
+        element.strYoutube=element.strYoutube.replace("https://www.youtube.com/watch?v=",'https://www.youtube.com/embed/');
+        element.strYoutube = this.sanitizer.bypassSecurityTrustResourceUrl(element.strYoutube);
+        }
+        return element;
+      }
+      )
+      )
+    ).subscribe(dataReceived => 
+    this.selectedMeal = dataReceived)
 
 }
+}
+
+  
 

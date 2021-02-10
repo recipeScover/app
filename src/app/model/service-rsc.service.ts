@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ICategories, ICategory } from '../interfaces/categories';
+import { ICategories, IMeals } from '../interfaces/categories';
 
 
 
@@ -30,8 +30,8 @@ export class ServiceRscService {
 
 
 
-  getIdMeal(id: any): Observable<ICategories>{
-    return this.http.get<ICategories>(`${environment.apiUrl}/lookup.php?i=${id}`);
+  getIdMeal(id: any): Observable<IMeals>{
+    return this.http.get<IMeals>(`${environment.apiUrl}/lookup.php?i=${id}`);
   
   }
 

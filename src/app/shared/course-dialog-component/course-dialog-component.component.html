@@ -52,6 +52,7 @@
  -->
 
 
+
  <div class="grid-container" style="margin-top: 20px;" >
   <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
     <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="120px" >
@@ -60,7 +61,7 @@
       <mat-spinner class="spinner"></mat-spinner>
       </div>
       <div *ngIf="selectedMeal">
-        <ng-container *ngFor="let meal of selectedMeal.meals"> 
+        <ng-container *ngFor="let meal of selectedMeal"> 
          
           <!--ng for for all type of cards definited in home.compnent.ts-->
       <mat-grid-tile *ngFor="let card of cards3 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
@@ -88,7 +89,7 @@
     <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="260px" >
       <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
       <div *ngIf="selectedMeal">
-        <ng-container *ngFor="let meal of selectedMeal.meals"> 
+        <ng-container *ngFor="let meal of selectedMeal"> 
          
           <!--ng for for all type of cards definited in home.compnent.ts-->
       <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows"> 
@@ -159,12 +160,12 @@
           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
           <mat-card-content class="dashboard-card-content">
             <!--content of card: title, img, description and botton detail-->
-                  <div class="containerTwo">
-                    <div *ngIf="meal.strYoutube" class="container">
-                      <iframe class="responsive-iframe" id="ytplayer" type="text/html" width="540"
-                      src="https://www.youtube.com/embed/6NgheY-r5t0"
-                      frameborder="0"></iframe></div>
-                    </div>
+            <div class="containerTwo">
+                    <div class="container">
+                      <iframe class="responsive-iframe" id="ytplayer" type="text/html"
+                      [src]="meal.strYoutube"
+                      frameborder="0" allowfullscreen></iframe></div>
+            </div>
            </mat-card-content>
           </mat-card>
         </mat-grid-tile>
