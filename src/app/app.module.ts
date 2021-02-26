@@ -13,9 +13,29 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
+
+
+
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
+
+import { AuthService } from "./shared/services/auth-service.service";
+import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+
+    VerifyEmailComponent,
 
   ],
   imports: [
@@ -26,8 +46,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     HttpClientModule,
     LayoutModule,
     MatProgressSpinnerModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
