@@ -1,0 +1,48 @@
+.mat-form-field {
+  width: 60%;
+  min-width: 300px;
+}
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  width: 30%;
+  margin-bottom: 5%;
+}
+
+
+.mat-card-content{
+  text-align: center;
+}
+
+.mat-card{
+  margin-top: 3rem;
+
+}
+
+.container-card{
+  display: flex;
+  justify-content: center;
+  height: 50%;
+  margin-top: 5%;
+
+}
+
+
+.container-link{
+
+}
+
+
+mat-card-title{
+  color:orange;
+}
+
+
+.redirect, .forgot{
+  color: orange;
+  text-decoration: none;
+}

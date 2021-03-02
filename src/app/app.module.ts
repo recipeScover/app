@@ -13,6 +13,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -27,6 +28,8 @@ import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.
 import { AuthService } from "./shared/services/auth-service.service";
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 
+
+import { MaterialModule } from './material/material.module';
 
 @NgModule({
   declarations: [
@@ -44,12 +47,15 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MaterialModule,
     LayoutModule,
     MatProgressSpinnerModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],
+  exports:[MaterialModule],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

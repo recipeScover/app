@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth-service.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ServiceRscService } from '../../model/service-rsc.service';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
@@ -12,6 +13,8 @@ import {TooltipPosition} from '@angular/material/tooltip';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  @Output() isLogout = new EventEmitter<void>()
 
 
   // results is the result of categories object data by sevice
@@ -29,14 +32,14 @@ export class HomeComponent implements OnInit {
           { title: 'Card 1', cols: 1, rows: 1 }
         ];
       }
-   
+
       return [
-        { title: 'Card 1', cols: 1, rows: 1 }  
+        { title: 'Card 1', cols: 1, rows: 1 }
       ];
     })
   );
 
-  constructor(private serviceRsc : ServiceRscService, private breakpointObserver: BreakpointObserver) {
+  constructor(private serviceRsc : ServiceRscService, private breakpointObserver: BreakpointObserver ,private authService: AuthService) {
     //to implements responsive dashbord grid
     breakpointObserver.observe([
       '(max-width: 900px)'
@@ -51,7 +54,12 @@ export class HomeComponent implements OnInit {
     //take service data by api
     this.serviceRsc.getAllCategories()
     .subscribe(res => {this.results = res;})
-  
+
+  }
+
+  logout() {
+    this.authService.logout()
+    this.isLogout.emit();
   }
 
 }

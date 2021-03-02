@@ -1,34 +1,65 @@
-<div class="displayTable">
-    <div class="displayTableCell">
-  
-      <div class="authBlock">
-        <h3>Sign In</h3>
-        <div class="formGroup">
-          <input type="text" class="formControl" placeholder="Username" #userName required>
-        </div>
-  
-        <div class="formGroup">
-          <input type="password" class="formControl" placeholder="Password" #userPassword required>
-        </div>
-  
+<div class="container-card">
+
+        <mat-card>
+          <mat-card-title>Login</mat-card-title>
+             <mat-card-content>
+              <form [formGroup]="loginForm" autocomplete="off">
+                <p>
+                 <mat-form-field>
+                   <input
+                   matInput
+                   type="text"
+                   formControlName="email"
+                   placeholder="email"
+                    #email
+                    required
+                  />
+                  </mat-form-field>
+                 </p>
+                  <div *ngIf="loginForm.controls.email.touched && loginForm.controls.email.hasError('required')" class="error">
+                    {{ emailError }}
+                  </div>
+
+                <p>
+                  <mat-form-field>
+                    <input
+                      type="password"
+                      matInput
+                      placeholder="Password"
+                      formControlName="password"
+                      #password
+                      required
+                    />
+                    </mat-form-field>
+                    </p>
+                    <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.hasError('required')" class="error">
+                   {{ passwordError }}
+                     </div>
+
         <!-- Calling SignIn Api from AuthService -->
-        <div class="formGroup">
-          <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
-        </div>
-  
-        <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
-        </div>
-  
-  
+         <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="authService.signin(email.value, password.value)">Login</button>
+
+
+
+
+   <div class="container-link">
         <div class="forgotPassword">
-          <span routerLink="/forgot-password">Forgot Password?</span>
+          <a class="forgot" routerLink="/forgot-password">Forgot Password?</a>
         </div>
-      </div>
-  
+
+
       <div class="redirectToLogin">
-        <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+        <span>Don't have an account?<a class="redirect" routerLink="/register-user"> Sign Up</a></span>
       </div>
-  
     </div>
-  </div>
+  </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
+
+

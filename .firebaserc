@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "food-app-login": {
+      "hosting": {
+        "recipeScover": [
+          "food-app-login"
+        ]
+      }
+    }
+  }
+}
