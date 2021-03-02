@@ -9,8 +9,10 @@ import { AuthService } from "../../shared/services/auth-service.service";
 })
 export class ForgotPasswordComponent implements OnInit {
 
+  emailError = "Email cannot be empty";
+
   forgotPasswordForm = new FormGroup({
-     resetPasswordEmail: new FormControl('', Validators.required)
+     resetPasswordEmail: new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")])
   });
 
   constructor( public authService: AuthService) { }

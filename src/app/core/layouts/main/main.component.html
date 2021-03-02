@@ -9,7 +9,7 @@
     <mat-toolbar>Menu</mat-toolbar>
     <!-- nella dashboard laterale se non siamo loggati vedo il pulsante login -->
     <!-- nella dashboard laterale se siamo loggati vedo la mia mail e il pulsante logout -->
-    <p *ngIf=" (isHandset$ | async) && authService.email !== '' ">{{authService.email}}</p>
+    <p *ngIf="(isHandset$ | async) && authService.email != '' ">{{authService.email}}</p>
     <mat-nav-list>
       <a *ngIf="(isHandset$ | async) && !authService.isLoggedIn" mat-list-item routerLink="sign-in" >Login</a>
       <a *ngIf="(isHandset$ | async) && authService.isLoggedIn" mat-list-item (click)="authService.logout()">Logout</a>
@@ -36,7 +36,7 @@
       <div class="containerTwo">
     <!-- nella home (vers. desktop -> no mobile) se non siamo loggati vedo il pulsante login -->
     <!-- nella home (vers. desktop) se siamo loggati vedo la mia mail e il pulsante logout -->
-        <p class="email-log" *ngIf="!(isHandset$ | async) && authService.email !== '' ">{{authService.email}}</p>
+        <p class="email-log" *ngIf="!(isHandset$ | async) && authService.email != '' ">{{authService.email}}</p>
 
       <button mat-icon-button *ngIf="!(isHandset$ | async) && !authService.isLoggedIn" routerLink="sign-in">
         Login

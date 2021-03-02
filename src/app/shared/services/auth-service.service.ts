@@ -27,7 +27,9 @@ export class AuthService {
       this.router.navigateByUrl('home');
       localStorage.setItem('user',JSON.stringify(res.user))
       alert("You are logged!!!!");
-    })
+    }).catch((error) => {
+      alert(error);
+    });
   }
 
 
@@ -38,7 +40,9 @@ export class AuthService {
       this.router.navigateByUrl('sign-in');
       localStorage.setItem('user',JSON.stringify(res.user))
       alert("Great,You signed up, now you can log in");
-    })
+    }).catch((error) => {
+      alert(error);
+    });
   }
 
   // logout
@@ -46,9 +50,26 @@ export class AuthService {
     this.firebaseAuth.signOut().then(() => {
       this.router.navigateByUrl('sign-in');
       localStorage.removeItem('user')
+      this.isLoggedIn = false;
+      this.email = '';
     }).catch((error) => {
       alert(error);
     });
   }
+
+
+// reset password
+
+async resetPassword(email: string) {
+  await this.firebaseAuth.sendPasswordResetEmail(email)
+    .then(resp => {
+      alert('message sent!');
+      this.router.navigateByUrl('sign-in')
+    })
+    .catch(error => {
+      alert(error);
+    });
+}
+
 
 }
