@@ -30,6 +30,7 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 
 
 import { MaterialModule } from './material/material.module';
+import { InsertDisplayNameModule } from './shared/insert-display-name/insert-display-name.module';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { MaterialModule } from './material/material.module';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    InsertDisplayNameModule,
   ],
   exports:[MaterialModule],
   providers: [AuthService],

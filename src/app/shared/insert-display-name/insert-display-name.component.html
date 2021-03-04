@@ -1,0 +1,21 @@
+<form [formGroup]="displayNameForm" autocomplete="off">
+    <p>
+     <mat-form-field>
+       <input
+       matInput
+       type="text"
+       formControlName="name"
+       placeholder="name"
+        #name
+        required
+      />
+      </mat-form-field>
+     </p>
+
+
+
+       <!-- Calling SignIn Api from AuthService -->
+       <button type="submit" mat-raised-button color="primary" [disabled]="!displayNameForm.valid" (click)="authService.addDisplayName(name.value)">Add Username</button>
+
+
+</form>

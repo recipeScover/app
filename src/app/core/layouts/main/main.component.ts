@@ -21,4 +21,5 @@ export class MainComponent {
 
   constructor(private breakpointObserver: BreakpointObserver, public authService : AuthService) {}
 
+
 }

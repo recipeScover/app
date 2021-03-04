@@ -86,3 +86,25 @@ p{
 .mat-icon-button{
   font-size: medium;
 }
+
+.containerThree{
+  display: flex;
+  width: 30%;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.spaceLeft{
+  margin-left: 15px;
+}
+
+
+
+.close.mat-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px;
+  line-height: 14px;
+  min-width: auto;
+}
