@@ -28,6 +28,7 @@ export enum FormStatus {
 export class SignUpComponent implements OnInit {
 
   registerForm = new FormGroup({
+    name: new FormControl('',Validators.required),
     email: new FormControl('', Validators.required),
     password: new FormControl('',Validators.required),
   });

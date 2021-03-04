@@ -2,20 +2,21 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+      [opened]="(isHandset$ | async) === false"
+      >
       <!-- responsive / mobile -->
       <!-- se è  responsive mi trovo nell'hamburger -->
 
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar>Menu <button class="close" mat-button (click)="drawer.toggle()">X</button></mat-toolbar>
     <!-- nella dashboard laterale se non siamo loggati vedo il pulsante login -->
     <!-- nella dashboard laterale se siamo loggati vedo la mia mail e il pulsante logout -->
-    <p *ngIf="(isHandset$ | async) && authService.email != '' ">{{authService.email}}</p>
+    <p *ngIf=" (isHandset$ | async) && authService.displayN !== '' && authService.displayN !== null">{{authService.displayN}}</p>
     <mat-nav-list>
-      <a *ngIf="(isHandset$ | async) && !authService.isLoggedIn" mat-list-item routerLink="sign-in" >Login</a>
-      <a *ngIf="(isHandset$ | async) && authService.isLoggedIn" mat-list-item (click)="authService.logout()">Logout</a>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item (click)="drawer.toggle()" href="myHomePage">My home page</a>
+      <a *ngIf="(isHandset$ | async) && !authService.isLoggedIn" mat-list-item (click)="drawer.toggle()" routerLink="sign-in" >Login</a>
+      <a *ngIf="(isHandset$ | async) && authService.isLoggedIn" mat-list-item (click)="authService.logout(); drawer.toggle()">Logout</a>
+      <a mat-list-item (click)="drawer.toggle()">add</a>
+      <a mat-list-item (click)="drawer.toggle()" href="addRecipe">Add Recipe</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -31,12 +32,16 @@
         <mat-icon aria-label="Side nav toggle icon"><img class="logo" src="https://img.icons8.com/cotton/2x/hamburger.png"></mat-icon>
       </button>
      <!--  <span>recipeScover</span>-->
+     <div class = containerThree> 
       <img src="assets/Titolo.png" class="img" routerLink="/home">
-
+      <button mat-icon-button *ngIf="!(isHandset$ | async)" class="spaceLeft" (change)="drawer.toggle()" (click)="drawer.toggle()">
+        Menu
+      </button>
+    </div>
       <div class="containerTwo">
     <!-- nella home (vers. desktop -> no mobile) se non siamo loggati vedo il pulsante login -->
     <!-- nella home (vers. desktop) se siamo loggati vedo la mia mail e il pulsante logout -->
-        <p class="email-log" *ngIf="!(isHandset$ | async) && authService.email != '' ">{{authService.email}}</p>
+        <p class="email-log" *ngIf="!(isHandset$ | async) && authService.displayN !== '' && authService.displayN !== null">{{authService.displayN}}</p>
 
       <button mat-icon-button *ngIf="!(isHandset$ | async) && !authService.isLoggedIn" routerLink="sign-in">
         Login

@@ -4,6 +4,14 @@
     <mat-card-title>Registrati</mat-card-title>
        <mat-card-content>
         <form [formGroup]="registerForm" autocomplete="off">
+
+          <p>
+            <mat-form-field>
+              <input matInput type="text" formControlName="name" placeholder="name" #name required/>
+             </mat-form-field>
+           </p>
+
+
           <p>
            <mat-form-field>
              <input matInput type="text" formControlName="email" placeholder="email" #emailSignup required/>
@@ -16,7 +24,7 @@
               </mat-form-field>
               </p>
 
-           <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.valid" (click)="authService.signup(emailSignup.value, passwordSignup.value)">Register</button>
+           <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.valid" (click)="authService.signup(emailSignup.value, passwordSignup.value); authService.addDisplayName(name.value)">Register</button>
 
 
 
