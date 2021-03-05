@@ -1,6 +1,7 @@
 
 .center{
-  text-align: center;
+justify-content: center;
+display: flex;
 }
 
 .card{
@@ -9,12 +10,12 @@
   margin-top: 5px;
   width: 85%;
   height: 50%;
-  border: 2px solid blue;
+
 }
 
 .container{
  display: flex;
- border: 2px solid green;
+
  width: 99%;
  height: 95%;
  align-items: center;
@@ -26,7 +27,7 @@
   align-items: center;
   width: 97%;
   height: 90%;
-  border: 2px solid red;
+
   margin: 15px;
 }
 
