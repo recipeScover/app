@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -8,14 +9,13 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { InsertDisplayNameComponent } from './insert-display-name/insert-display-name.component';
 
 
 
 
 
 @NgModule({
-  declarations: [InsertDisplayNameComponent],
+  declarations: [],
   imports: [
     CommonModule,
     MatButtonModule,
@@ -27,7 +27,7 @@ import { InsertDisplayNameComponent } from './insert-display-name/insert-display
     MatMenuModule,
     MatProgressSpinnerModule,
 
-    
-  ]
+  ],
+  exports: []
 })
 export class SharedModule { }

@@ -31,6 +31,9 @@ const routes: Routes = [
   },
   { path: 'category-detail/:name', loadChildren: () => import('./features/category-detail/category-detail.module').then(m => m.CategoryDetailModule) },
   { path: 'login', loadChildren: () => import('./features/category-detail/category-detail.module').then(m => m.CategoryDetailModule) },
+  { path: 'myHomePage', loadChildren: () => import('./shared/my-home-page/my-home-page.module').then(m => m.MyHomePageModule) },
+  { path: 'profile', loadChildren: () => import('./shared/profile/profile.module').then(m => m.ProfileModule) },
+  { path: 'recipeList', loadChildren: () => import('./shared/recipe-list/recipe-list.module').then(m => m.RecipeListModule) },
 ];
 
 @NgModule({

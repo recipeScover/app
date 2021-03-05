@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -32,13 +33,13 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { MaterialModule } from './material/material.module';
 import { InsertDisplayNameModule } from './shared/insert-display-name/insert-display-name.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-
     VerifyEmailComponent,
 
   ],
@@ -56,6 +57,7 @@ import { InsertDisplayNameModule } from './shared/insert-display-name/insert-dis
     AngularFireAuthModule,
     AngularFirestoreModule,
     InsertDisplayNameModule,
+
   ],
   exports:[MaterialModule],
   providers: [AuthService],

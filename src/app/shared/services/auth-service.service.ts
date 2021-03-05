@@ -28,7 +28,7 @@ export class AuthService {
     await this.firebaseAuth.signInWithEmailAndPassword(email,password)
     .then(res => {
       this.isLoggedIn = true; // sono loggato
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('myHomePage');
       this.displayN= res.user?.displayName;
 
       if(res.user?.displayName == null || res.user?.displayName==''){
@@ -36,7 +36,7 @@ export class AuthService {
       }
       localStorage.setItem('user',JSON.stringify(res.user))
       alert("You are logged!!!!");
-      
+
     }).catch((error) => {
       alert(error);
     });
@@ -48,7 +48,7 @@ export class AuthService {
     await this.firebaseAuth.createUserWithEmailAndPassword(email,password)
     .then(res => {
       this.router.navigateByUrl('sign-in');
-      localStorage.setItem('user',JSON.stringify(res.user))   
+      localStorage.setItem('user',JSON.stringify(res.user))
       alert("Great,You signed up, now you can log in");
     }).catch((error) => {
       alert(error);
@@ -80,18 +80,6 @@ export class AuthService {
   this.displayN= username;
   this.closeDialog();
 }
-
-
-
-
- 
-
-
-
-
-
-
-
 
 
 
