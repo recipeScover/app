@@ -34,6 +34,7 @@ const routes: Routes = [
   { path: 'myHomePage', loadChildren: () => import('./shared/my-home-page/my-home-page.module').then(m => m.MyHomePageModule) },
   { path: 'profile', loadChildren: () => import('./shared/profile/profile.module').then(m => m.ProfileModule) },
   { path: 'recipeList', loadChildren: () => import('./shared/recipe-list/recipe-list.module').then(m => m.RecipeListModule) },
+  { path: 'changePassword', loadChildren: () => import('./shared/change-password/change-password.module').then(m => m.ChangePasswordModule) },
 ];
 
 @NgModule({

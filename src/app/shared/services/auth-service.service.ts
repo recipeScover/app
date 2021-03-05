@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
 // import Component of our material Dialog
 import { InsertDisplayNameComponent } from '../../shared/insert-display-name/insert-display-name.component'
+import { ChangePasswordComponent } from '../change-password/change-password.component';
 
 
 @Injectable({
@@ -111,6 +112,37 @@ async resetPassword(email: string) {
       alert(error);
     });
 }
+
+
+
+//ChangePassword
+//Al click si apre la dialog con alert
+//Se si mi aggancio al changePassword altrimenti chiudo la dialog
+
+
+openDialogChangePsw() {
+    this.dialog.open(ChangePasswordComponent, { disableClose: true });
+  }
+
+
+changePassword(){
+ this.resetPassword(this.email);
+  this.logout();
+  this.closeDialog();
+  alert("Email received to change password");
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
