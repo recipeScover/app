@@ -42,7 +42,7 @@
       <div class="containerTwo">
     <!-- nella home (vers. desktop -> no mobile) se non siamo loggati vedo il pulsante login -->
     <!-- nella home (vers. desktop) se siamo loggati vedo la mia mail e il pulsante logout -->
-        <p class="email-log" *ngIf="!(isHandset$ | async) && authService.displayN !== '' && authService.displayN !== null">{{authService.displayN}}</p>
+       <button  mat-icon-button class="user-log" *ngIf="!(isHandset$ | async) && authService.displayN !== '' && authService.displayN !== null" routerLink="myHomePage">{{authService.displayN}}</button>
 
       <button mat-icon-button *ngIf="!(isHandset$ | async) && !authService.isLoggedIn" routerLink="sign-in">
         Login
