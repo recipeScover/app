@@ -6,8 +6,9 @@
   <div class="container">
     <div class="containerTwo">
       <div class="avatar">
-        <div mat-card-avatar class="user-profile"></div>
-        <button  class="plus" mat-mini-fab color="primary">+</button>
+        <div mat-card-avatar *ngIf='!authService.userImg[0]' [style.background-image]="authService.imgProf" class="user-profile"></div>
+        <div mat-card-avatar *ngIf='authService.userImg[0]'  [style.background-image]='url+authService.userImg[0].base64+apice' class="user-profile"></div>
+        <button  class="plus" (click)="authService.openDialogChangeImg()" mat-mini-fab color="primary">+</button>
       </div>
       <div class="info">
         <mat-card-subtitle>{{authService.displayN}}<button (click)="authService.openDialog()"  class="plus2">+</button></mat-card-subtitle>
@@ -18,9 +19,6 @@
   </div>
 </mat-card>
 </div>
-
-
-
 
 
 

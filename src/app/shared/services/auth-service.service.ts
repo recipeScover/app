@@ -8,6 +8,8 @@ import {MatDialog} from '@angular/material/dialog';
 // import Component of our material Dialog
 import { InsertDisplayNameComponent } from '../../shared/insert-display-name/insert-display-name.component'
 import { ChangePasswordComponent } from '../change-password/change-password.component';
+import { UserImg } from './user';
+import { DialogProfilImgComponent } from '../dialog-profil-img/dialog-profil-img.component';
 
 
 @Injectable({
@@ -18,6 +20,8 @@ export class AuthService {
   isLoggedIn = false;
   email : string = '';
   displayN: any;
+  imgProf: string= 'url("../../../assets/user-profile.jpg")';
+  userImg: any=[];
 
 
   constructor(public firebaseAuth: AngularFireAuth, public router: Router, public afs: AngularFirestore, public dialog: MatDialog) { }
@@ -35,6 +39,7 @@ export class AuthService {
       if(res.user?.displayName == null || res.user?.displayName==''){
         this.openDialog();
       }
+      this.getImg();
       localStorage.setItem('user',JSON.stringify(res.user))
       alert("You are logged!!!!");
 
@@ -94,6 +99,7 @@ export class AuthService {
       this.displayN='';
       this.isLoggedIn = false;
       this.email = '';
+      this.userImg='';
     }).catch((error) => {
       alert(error);
     });
@@ -115,22 +121,15 @@ async resetPassword(email: string) {
 
 
 
-//ChangePassword
-//Al click si apre la dialog con alert
-//Se si mi aggancio al changePassword altrimenti chiudo la dialog
 
 
-openDialogChangePsw() {
-    this.dialog.open(ChangePasswordComponent, { disableClose: true });
-  }
 
 
-changePassword(){
- this.resetPassword(this.email);
-  this.logout();
-  this.closeDialog();
-  alert("Email received to change password");
 
+
+
+openDialogChangeImg() {
+  this.dialog.open(DialogProfilImgComponent);
 }
 
 
@@ -143,6 +142,45 @@ changePassword(){
 
 
 
+
+
+
+
+//ChangePassword
+//Al click si apre la dialog con alert
+//Se si mi aggancio al changePassword altrimenti chiudo la dialog
+
+openDialogChangePsw() {
+    this.dialog.open(ChangePasswordComponent, { disableClose: true });
+  }
+
+
+
+changePassword(){
+ this.resetPassword(this.email);
+  this.logout();
+  this.closeDialog();
+  alert("Email received to change password");
+
+}
+
+
+
+getImg() {
+  return this.afs.collection('imgProfile',ref => ref.where('user','==', this.email )).get();
+}
+
+update(dati: any, id:string) {
+    this.afs.doc('imgProfile/' + id).update(dati);
+}
+
+createImg(userImg: any){
+  return this.afs.collection('imgProfile').add(userImg);
+}
+
+deleteImg(userImg: UserImg){
+  this.afs.doc('policies/' + userImg.id).delete();
+}
 
 
 }

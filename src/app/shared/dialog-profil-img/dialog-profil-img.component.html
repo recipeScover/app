@@ -1,0 +1,27 @@
+
+ 
+ <div class='container'>
+ <form [formGroup]="imageForm" class="example-form"> 
+
+    <mat-form-field class="mat-form-fieldtwo">
+        <div>
+          <mat-label>Add recipe photo:</mat-label>
+          <mat-toolbar>
+            <!-- Display files names -->
+            <input matInput  [(ngModel)]="fileAttr" class="inputtwo" readonly name="name" formControlName="photoName"/>
+            <!-- Browse Button -->
+            <button mat-raised-button class="orange" >
+              Browse File
+            </button>
+         </mat-toolbar>
+          <!-- Fetch selected filed on change -->
+          <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
+            accept="image/*" />
+        </div>
+      </mat-form-field>
+    <div class="containerPuls">
+  <button mat-raised-button (click)="fine()" class="orange puls" [disabled]="!imageForm.valid" >Add</button>
+  <button mat-raised-button (click)="fire.closeDialog()" class="puls" color="warn" >Close</button>
+</div>
+  </form>
+</div>

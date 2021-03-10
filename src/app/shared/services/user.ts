@@ -6,3 +6,8 @@ export interface User {
     emailVerified: boolean;
 }
 
+export interface UserImg{
+    id: string;
+    user: string;
+    base64: string;
+}
