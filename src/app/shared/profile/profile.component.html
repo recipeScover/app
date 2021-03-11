@@ -10,6 +10,7 @@
         <div mat-card-avatar *ngIf='authService.userImg[0]'  [style.background-image]='url+authService.userImg[0].base64+apice' class="user-profile"></div>
         <button  class="plus" (click)="authService.openDialogChangeImg()" mat-mini-fab color="primary">+</button>
       </div>
+
       <div class="info">
         <mat-card-subtitle>{{authService.displayN}}<button (click)="authService.openDialog()"  class="plus2">+</button></mat-card-subtitle>
         <mat-card-subtitle>{{authService.email}}</mat-card-subtitle>

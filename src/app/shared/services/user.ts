@@ -11,3 +11,20 @@ export interface UserImg{
     user: string;
     base64: string;
 }
+
+
+export interface AllIngredients {
+    ingredient: string;
+    quantity: string;
+}
+
+export interface Recipe {
+    id:string;
+    category: string;
+    name: string;
+    description: string;
+    allIngredients: AllIngredients[];
+    photoName: string;
+    base64: string;
+    user: string;
+}

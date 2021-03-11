@@ -36,6 +36,7 @@ const routes: Routes = [
   { path: 'recipeList', loadChildren: () => import('./shared/recipe-list/recipe-list.module').then(m => m.RecipeListModule) },
   { path: 'changePassword', loadChildren: () => import('./shared/change-password/change-password.module').then(m => m.ChangePasswordModule) },
   { path: 'dialogProfilImg', loadChildren: () => import('./shared/dialog-profil-img/dialog-profil-img.module').then(m => m.DialogProfilImgModule) },
+  { path: 'dialogAddRecip', loadChildren: () => import('./shared/dialog-add-recipe/dialog-add-recipe.module').then(m => m.DialogAddRecipeModule) },
 ];
 
 @NgModule({

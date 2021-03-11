@@ -1,0 +1,116 @@
+<div class="container, example-card">
+    <div class="row">
+      <div class="col-12">
+  
+  <div class="center">
+        <form [formGroup]="recepiForm" class="example-form"> 
+          <h3>Add Recipe</h3>
+         
+    <mat-form-field appearance="fill">
+    <mat-label>Select category</mat-label>
+    <mat-select formControlName="category">
+      <ng-container *ngFor="let categoria of categories">
+      <mat-option *ngIf="categoria!=''" [value]="categoria">{{categoria}}</mat-option> 
+    </ng-container>
+   </mat-select>
+  </mat-form-field>
+  
+            <mat-form-field class="example-full-width">
+              <mat-label>Receip Name</mat-label>
+              <input matInput  formControlName="name" placeholder="Add name" required>
+            </mat-form-field>
+          
+         <!--div immagine se c'è-->
+  
+  
+            <mat-form-field class="mat-form-fieldtwo">
+              <div>
+                <mat-label>Add recipe photo:</mat-label>
+                <mat-toolbar>
+                  <!-- Display files names -->
+                  <input matInput [(ngModel)]="fileAttr" class="inputtwo" readonly name="name" formControlName="photoName"/>
+                  <!-- Browse Button -->
+                  <button mat-raised-button color="primary">
+                    Browse File
+                  </button>
+               </mat-toolbar>
+                <!-- Fetch selected filed on change -->
+                <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
+                  accept="image/*" />
+              </div>
+            </mat-form-field>
+  
+  
+  
+  
+            <mat-label>All ingredients needed:</mat-label>
+  
+            <table class="example-full-width" cellspacing="0">
+            <div formArrayName="allIngredients">
+              <div *ngFor="let skill of allIngredients.controls; let i=index">
+                <div [formGroupName]="i">
+                  <tr>
+                  <td> <mat-form-field class="example-full-width">
+                    <mat-label>{{i+1}}) ingredient name:</mat-label>
+                    <input matInput  formControlName="ingredient" placeholder="Insert name" formControlName="ingredient" required>
+                  </mat-form-field>
+                  </td>
+                  <td>
+                  <mat-form-field class="example-full-width">
+                    <mat-label>{{i+1}}) quantity:</mat-label>
+                    <input matInput  formControlName="quantity" placeholder="Insert quatity" formControlName="quantity" required>
+                  </mat-form-field>
+                </td>
+                <td>
+                  <div *ngIf="i!=0" class="example-button-row">
+                  <div class="example-button-container">
+                    <button mat-fab color="primary" aria-label="Remove ingredient" (click)="removeingredient(i)">
+                    Delete
+                    </button>
+                  </div>
+                </div>
+              </td>
+                  </tr>
+             
+                </div>
+              </div>
+            </div>
+          </table>
+            <div class="example-button-row center">
+            <div class="example-button-container">
+              <button class="orange" mat-fab color="accent" aria-label="Add ingredient" (click)="addallIngredients()">
+                <mat-icon>+1</mat-icon>
+              </button>
+            </div>
+          </div>
+  
+            <mat-form-field class="example-full-width">
+              <mat-label>Describe your receip</mat-label>
+              <textarea  rows="10" matInput formControlName="description" placeholder="Add all passages" required></textarea>
+            </mat-form-field>
+  
+         
+          <div class="example-button-row">
+          
+          <button (click)="fine()" mat-fab color="primary" [disabled]="!recepiForm.valid" >End</button>
+  
+        </div>
+  
+        </form>
+        
+  </div>
+    
+  
+  
+  
+  
+  
+      </div>
+  
+  
+
+  
+  
+  
+  </div>
+  

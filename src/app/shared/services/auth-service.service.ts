@@ -8,8 +8,9 @@ import {MatDialog} from '@angular/material/dialog';
 // import Component of our material Dialog
 import { InsertDisplayNameComponent } from '../../shared/insert-display-name/insert-display-name.component'
 import { ChangePasswordComponent } from '../change-password/change-password.component';
-import { UserImg } from './user';
+import { Recipe, UserImg } from './user';
 import { DialogProfilImgComponent } from '../dialog-profil-img/dialog-profil-img.component';
+import { DialogAddRecipeComponent } from '../dialog-add-recipe/dialog-add-recipe.component';
 
 
 @Injectable({
@@ -132,6 +133,10 @@ openDialogChangeImg() {
   this.dialog.open(DialogProfilImgComponent);
 }
 
+openDialogAddRecipe() {
+  this.dialog.open(DialogAddRecipeComponent);
+}
+
 
 
 
@@ -181,6 +186,16 @@ createImg(userImg: any){
 deleteImg(userImg: UserImg){
   this.afs.doc('policies/' + userImg.id).delete();
 }
+
+
+createRecipe(ricetta: Recipe){
+  return this.afs.collection('userRecipe').add(ricetta);
+}
+
+getRecipe() {
+  return this.afs.collection('userRecipe',ref => ref.where('user','==', this.email )).get();
+}
+
 
 
 }

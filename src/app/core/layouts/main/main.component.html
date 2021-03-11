@@ -17,7 +17,7 @@
       <a *ngIf="authService.isLoggedIn" mat-list-item (click)="drawer.toggle()" routerLink="myHomePage">My home page</a>
       <a *ngIf=" (isHandset$ | async) && !authService.isLoggedIn" mat-list-item (click)="drawer.toggle()" routerLink="sign-in" >Login</a>
       <a *ngIf=" (isHandset$ | async) && authService.isLoggedIn" mat-list-item (click)="authService.logout(); drawer.toggle()">Logout</a>
-      <a *ngIf="authService.isLoggedIn"  mat-list-item (click)="drawer.toggle()" href="addRecipe">Add Recipe</a>
+      <a *ngIf="authService.isLoggedIn"  mat-list-item (click)="drawer.toggle(); authService.openDialogAddRecipe()">Add Recipe</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
