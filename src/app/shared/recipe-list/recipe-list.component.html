@@ -1,1 +1,23 @@
-<p>recipe-list works!</p>
+
+<div class="center">
+    <mat-card class="card">
+      <div>
+        <mat-list  role="list" *ngFor="let ricetta of authService.userRecipe">
+            <mat-list-item role="listitem">
+              <div class="container2">
+                <div class='cat'>
+                  <b>Category:</b>&nbsp;{{ricetta.category}}
+                </div>
+                <div class='name'>
+                  <b>Name:</b>&nbsp;{{ricetta.name}}
+                </div>
+                <div class="containerPuls">
+                  <button (click)='delete(ricetta.id)' mat-button color='warn'>delete</button>&nbsp;<button (click)='authService.openDialogUpdate(ricetta)' mat-button color='primary'>update</button>
+                </div>
+              </div>
+            </mat-list-item>
+        </mat-list>
+      </div>
+    </mat-card>
+    </div>
+    
