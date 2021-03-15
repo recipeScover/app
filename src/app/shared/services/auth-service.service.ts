@@ -23,6 +23,7 @@ export class AuthService {
   displayN: any;
   imgProf: string= 'url("../../../assets/user-profile.jpg")';
   userImg: any=[];
+  userRecipe: Recipe[] | undefined;
 
 
   constructor(public firebaseAuth: AngularFireAuth, public router: Router, public afs: AngularFirestore, public dialog: MatDialog) { }
@@ -71,6 +72,8 @@ export class AuthService {
     this.dialog.closeAll();
   }
 
+
+  
 
 
   addDisplayName( username: string){
@@ -138,10 +141,17 @@ openDialogAddRecipe() {
 }
 
 
+openDialogUpdate(ricetta: Recipe){
+  this.dialog.open(DialogAddRecipeComponent, {
+    data: {
+      ricetta: ricetta
+    }
+  });
+}
 
 
 
-
+  
 
 
 
@@ -188,12 +198,21 @@ deleteImg(userImg: UserImg){
 }
 
 
+deleteRecipe(id : string){
+  this.afs.doc('userRecipe/' + id).delete();
+}
+
+
 createRecipe(ricetta: Recipe){
   return this.afs.collection('userRecipe').add(ricetta);
 }
 
 getRecipe() {
   return this.afs.collection('userRecipe',ref => ref.where('user','==', this.email )).get();
+}
+
+updateRecipe(dati: Recipe, id:string) {
+  this.afs.doc('userRecipe/' + id).update(dati);
 }
 
 

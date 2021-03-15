@@ -1,0 +1,154 @@
+
+.center{
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    }
+    
+    .card{
+      align-self: center;
+      text-align: left;
+      margin-top: 5px;
+      width: 85%;
+      height: 50%;
+      background-color: antiquewhite;
+    
+    }
+    
+    .container{
+     display: flex;
+    
+     width: 99%;
+     height: 95%;
+     align-items: center;
+    }
+    
+    .containerTwo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 97%;
+      height: 90%;
+    
+      margin: 15px;
+    }
+    
+    
+    .user-profile{
+     // background-image: url('../../../assets/user-profile.jpg');
+      background-size: cover;
+      width: 130px;
+      height: 130px;
+    }
+    
+    .info{
+      flex-direction: column;
+      margin-left: 15px;
+    
+    }
+    
+    
+    .avatar{
+      flex-direction: row;
+    }
+    
+    
+    .plus{
+      margin-top: -40px;
+      width: 40px;
+      height: 40px;
+    }
+    
+    //Mobile
+    @media screen and (max-width: 992px) { //dimensione in mobile
+      .containerTwo{
+        display: flex;
+        flex-direction: column; //vedere gli elementi uno sotto l'altro
+      }
+    }
+    
+    a{
+      text-decoration: none;
+    }
+    
+    
+    
+    .plus2{
+      vertical-align:middle;
+      margin-left: 30px;
+      background-color: orange !important;
+      border-radius: 5px;
+      color:white !important;
+      border: none;
+    
+    }
+    
+    .mat-mini-fab{
+      vertical-align:middle;
+      align-items: center;
+      background-color: orange !important;
+    }
+    
+    
+    .back{
+      background-color: orange;
+      color: white;
+      width: 70px;
+      height: 35px;
+      text-align: center;
+    }
+    
+    
+    //hover
+    .back:hover{
+      color: yellow;
+      background-color: blue;
+    }
+    
+    .mat-mini-fab:hover{
+      color: yellow;
+      background-color: blue;
+    }
+    
+    
+    .plus2:hover{
+      color: yellow;
+      background-color: blue;
+    }
+    
+
+
+
+
+
+
+    .container2{
+      display: flex;
+     
+      width: 99%;
+
+      justify-content: space-between;
+     }
+     .containerPuls{
+      display: flex;
+     
+      width: 320;
+
+      justify-content: space-between;
+     }
+
+     .cat{
+       width: 25%;
+     }
+     .name{
+       width: 25%;
+     }
+
+
+     @media only screen and (max-width: 600px) {
+      .container2 {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+      }
+    }

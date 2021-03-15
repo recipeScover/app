@@ -8,6 +8,10 @@
     width: 100%;
   }
 
+  .ingqua{
+    max-width: 20%;
+    }
+
 
 
   section {
@@ -24,6 +28,9 @@
   .example-button-row {
     display: table-cell;
     width: 490px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: -webkit-center;
   }
   
   .example-button-row .mat-button-base {
@@ -50,6 +57,7 @@
       display: flex;
       justify-content: center;
       text-align: center;
+      width: 100%;
   }
   .orange{
       background-color: orange;
@@ -114,4 +122,26 @@
     max-height: 90% !important;
     padding-right: 10px !important;
     overflow: auto;
+}
+
+img{
+  max-width: 60%;
+  border-radius: 10px;
+}
+
+.containerIngred{
+  display: flex;
+  width: 99% !important;
+}
+
+table{
+  width: 100%;
+}
+tr{
+  text-align: center;
+}
+
+.mat-divider{
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
