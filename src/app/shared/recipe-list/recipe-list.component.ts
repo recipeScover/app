@@ -2,10 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth-service.service';
 import { Recipe } from '../services/user';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddRecipeComponent } from '../dialog-add-recipe/dialog-add-recipe.component';
+import { CourseDialogComponentComponent } from '../course-dialog-component/course-dialog-component.component';
+import { DialogConfirmDeleteComponent } from '../dialog-confirm-delete/dialog-confirm-delete.component';
 
-@Injectable({
-  providedIn: 'root'
-})
+
 
 
 @Component({
@@ -14,24 +16,40 @@ import { Injectable } from '@angular/core';
   styleUrls: ['./recipe-list.component.scss']
 })
 export class RecipeListComponent implements OnInit {
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public matDialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getData();
+    this.authService.getData();
   }
 
-  getData(){
-    this.authService.getRecipe().subscribe(data => this.authService.userRecipe = data.docs.map(e => {
-      return {
-       id: e.id,
-       ... e.data() as any
-      } as Recipe;
-    }));
-  }
-delete(id : string){
-  this.authService.deleteRecipe(id);
-  setTimeout(()=>{this.getData()}, 1000);
+
+
+openDialogUpdate(ricetta: Recipe){
+  this.matDialog.open(DialogAddRecipeComponent, {
+    data: {
+      ricetta: ricetta
+    },
+   disableClose: true
+  });
 }
+openDialogDetail(ricetta: Recipe){
+  this.matDialog.open(CourseDialogComponentComponent, {
+    data: {
+      ricetta: ricetta
+    }
+  });
+
+}
+openDialogConfirm(id: string){
+  this.matDialog.open(DialogConfirmDeleteComponent, {
+    data:{
+      id: id
+    }
+  } )
+}
+
+
+
 
 
 }

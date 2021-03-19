@@ -8,6 +8,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import {ChangeDetectionStrategy, ViewEncapsulation} from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Recipe } from '../services/user';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class CourseDialogComponentComponent implements OnInit {
   public showContent: boolean = false;
 
 
-
+ricetta: Recipe| undefined;
 
   /* grid,card and responsive */
 
@@ -129,10 +130,10 @@ url: any;
   ngOnInit(): void {
     this.dialogRef.updateSize('80%', '80%');
     // will log the entire data object
-  console.log(this.data);
 
 
 
+if(this.data.id){
   this.serviceRscService.getIdMeal(this.data.id).pipe(
     map( data => 
       data.meals.map(element => {
@@ -147,7 +148,11 @@ url: any;
     ).subscribe(dataReceived => 
     this.selectedMeal = dataReceived)
 
+}else{
+    this.ricetta=this.data.ricetta;
 }
+  }
+  
 }
 
   

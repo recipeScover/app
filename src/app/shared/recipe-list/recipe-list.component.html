@@ -1,23 +1,32 @@
 
 <div class="center">
     <mat-card class="card">
-      <div>
-        <mat-list  role="list" *ngFor="let ricetta of authService.userRecipe">
-            <mat-list-item role="listitem">
-              <div class="container2">
-                <div class='cat'>
-                  <b>Category:</b>&nbsp;{{ricetta.category}}
-                </div>
-                <div class='name'>
-                  <b>Name:</b>&nbsp;{{ricetta.name}}
-                </div>
-                <div class="containerPuls">
-                  <button (click)='delete(ricetta.id)' mat-button color='warn'>delete</button>&nbsp;<button (click)='authService.openDialogUpdate(ricetta)' mat-button color='primary'>update</button>
-                </div>
+      <mat-card-content>
+
+
+
+        <ul>
+          <li *ngFor="let ricetta of authService.userRecipe">
+            <div class="container2">
+             <div class='cat'>
+                <b>Category:</b>&nbsp;{{ricetta.category}}
+             </div>
+             <div class='name'>
+               <b>Name:</b>&nbsp;{{ricetta.name}}
               </div>
-            </mat-list-item>
-        </mat-list>
-      </div>
+             <div class="containerPuls">
+               <button (click)='openDialogConfirm(ricetta.id)' mat-button color='warn'>delete</button>&nbsp;<button (click)='openDialogUpdate(ricetta)' mat-button color='primary'>update</button>
+               &nbsp;<button (click)='openDialogDetail(ricetta)' mat-button color='basic'>detail</button>
+               
+             </div>
+            </div>
+            <mat-divider></mat-divider>
+          </li>
+        </ul>
+
+
+
+      </mat-card-content>
     </mat-card>
     </div>
     

@@ -7,7 +7,6 @@ import { ElementRef } from '@angular/core';
 import { ServiceRscService } from '../../model/service-rsc.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { map } from 'rxjs/operators';
-import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 import { Inject } from '@angular/core';
 
 @Component({
@@ -20,7 +19,7 @@ export class DialogAddRecipeComponent implements OnInit {
   imgBase64Path= "";
   immagine: string | undefined;
   id="";
-  constructor(private fb:FormBuilder, public fire : AuthService, public serviceCat : ServiceRscService, public recipeList: RecipeListComponent,  @Inject(MAT_DIALOG_DATA) public ricetta: any ) {
+  constructor(private fb:FormBuilder, public fire : AuthService, public serviceCat : ServiceRscService,  @Inject(MAT_DIALOG_DATA) public ricetta: any, public matDialog: MatDialog ) {
    
     if(ricetta){
     this.immagine=ricetta.ricetta.base64;
@@ -63,16 +62,15 @@ export class DialogAddRecipeComponent implements OnInit {
     this.allIngredients.removeAt(i);
   }
  
-  fine() {
+  fine() {    
     this.addBase64();
     if(this.id==""){
     this.fire.createRecipe(this.recepiForm.value);
     }else{
       this.fire.updateRecipe(this.recepiForm.value, this.id);
     }
-    console.log(this.recepiForm.value);
-    setTimeout(()=>{this.recipeList.getData();}, 2000);
-    this.fire.closeDialog();
+    setTimeout(()=>{this.fire.getData();}, 2000);
+    this.closeDialog();
   }
 
  categories:[any]=[''];
@@ -81,7 +79,6 @@ export class DialogAddRecipeComponent implements OnInit {
     if(!this.ricetta){
     this.addallIngredients();
     }
-    console.log(this.ricetta);
     //this.fire.getPolicies().subscribe(el => this.ricette=el.docs);
     this.serviceCat.getAllCategoriesTwo().subscribe(
       data => data.categories.filter( e => {
@@ -106,10 +103,15 @@ export class DialogAddRecipeComponent implements OnInit {
   }
 
   addBase64(){
+    if(this.imgBase64Path!=""){
     this.recepiForm.patchValue({ base64: this.imgBase64Path });
+    }
     this.recepiForm.patchValue({ user: this.fire.email });
   }
 
+    closeDialog(){
+      this.matDialog.closeAll();
+    }
 
 
   @ViewChild('fileInput') fileInput!: ElementRef;

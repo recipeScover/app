@@ -26,8 +26,8 @@
     bottom: 0;
     border-radius: 2%;
     height: auto;
-    height: 80% !important;
-    width: auto !important;
+    max-height: auto !important;
+    max-width: 80% !important;
 }
 
 .img-container{
@@ -170,3 +170,28 @@ b{
       position: relative;
       display: flex;
   }
+
+
+  ul {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  li {
+    width: 100%;
+    margin-right: 100%;
+
+  }
+
+  @media only screen and (max-width: 600px) {
+  ul {
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  li {
+    width: 100%;
+  }
+}

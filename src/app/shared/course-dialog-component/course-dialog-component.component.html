@@ -51,7 +51,7 @@
 
  -->
 
-
+<ng-template [ngIf]="selectedMeal">
  <div class="grid-container" style="margin-top: 20px;" >
   <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
     <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="120px" >
@@ -113,7 +113,6 @@
           <mat-card-content class="dashboard-card-content">
             <!--content of card: title, img, description and botton detail-->
                 <div class="justify-text-description"  [style.overflow]="'auto'">
-                  <div class="column">
                   <ul>
                     <li *ngIf="meal.strIngredient1!='' && meal.strIngredient1!=null">{{meal.strMeasure1}} - {{meal.strIngredient1}}</li>
                     <li *ngIf="meal.strIngredient2!='' && meal.strIngredient2!=null">{{meal.strMeasure2}} - {{meal.strIngredient2}}</li>
@@ -122,11 +121,6 @@
                     <li *ngIf="meal.strIngredient5!='' && meal.strIngredient5!=null">{{meal.strMeasure5}} - {{meal.strIngredient5}}</li>
                     <li *ngIf="meal.strIngredient6!='' && meal.strIngredient6!=null">{{meal.strMeasure6}} - {{meal.strIngredient6}}</li>
                     <li *ngIf="meal.strIngredient7!='' && meal.strIngredient7!=null">{{meal.strMeasure7}} - {{meal.strIngredient7}}</li>
-                   
-                  </ul>
-                  </div>
-                  <div class="column">
-                    <ul>
                    <li *ngIf="meal.strIngredient8!='' && meal.strIngredient8!=null">{{meal.strMeasure8}} - {{meal.strIngredient8}}</li>
                     <li *ngIf="meal.strIngredient9!='' && meal.strIngredient9!=null">{{meal.strMeasure9}} - {{meal.strIngredient9}}</li>
                     <li *ngIf="meal.strIngredient10!='' && meal.strIngredient10!=null">{{meal.strMeasure10}} - {{meal.strIngredient10}}</li>
@@ -134,10 +128,6 @@
                   <li *ngIf="meal.strIngredient12!='' && meal.strIngredient12!=null">{{meal.strMeasure12}} - {{meal.strIngredient12}}</li>
                   <li *ngIf="meal.strIngredient13!='' && meal.strIngredient13!=null">{{meal.strMeasure13}} - {{meal.strIngredient13}}</li>
                   <li *ngIf="meal.strIngredient14!='' && meal.strIngredient14!=null">{{meal.strMeasure14}} - {{meal.strIngredient14}}</li>
-                </ul>
-                </div>
-                <div class="column">
-                  <ul>
                   <li *ngIf="meal.strIngredient15!='' && meal.strIngredient15!=null">{{meal.strMeasure15}} - {{meal.strIngredient15}}</li>
                   <li *ngIf="meal.strIngredient16!='' && meal.strIngredient16!=null">{{meal.strMeasure16}} - {{meal.strIngredient16}}</li>
                   <li *ngIf="meal.strIngredient17!='' && meal.strIngredient17!=null">{{meal.strMeasure17}} - {{meal.strIngredient17}}</li>
@@ -145,7 +135,6 @@
                   <li *ngIf="meal.strIngredient19!='' && meal.strIngredient19!=null">{{meal.strMeasure19}} - {{meal.strIngredient19}}</li>
                   <li *ngIf="meal.strIngredient20!='' && meal.strIngredient20!=null">{{meal.strMeasure20}} - {{meal.strIngredient20}}</li>
                 </ul>
-              </div>
               </div>
           </mat-card-content>
         </mat-card>
@@ -197,3 +186,102 @@
     </div>
 
 </div>
+</ng-template>
+
+
+
+<ng-template [ngIf]="ricetta">
+  <div class="grid-container" style="margin-top: 20px;" >
+   <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
+     <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="120px" >
+       <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+       <div *ngIf="!ricetta">
+       <mat-spinner class="spinner"></mat-spinner>
+       </div>
+       <div *ngIf="ricetta">
+
+          
+           <!--ng for for all type of cards definited in home.compnent.ts-->
+       <mat-grid-tile *ngFor="let card of cards3 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+         <!--generate card-->    
+         <mat-card class="dashboard-card backgroundColor">
+           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+           <mat-card-content class="dashboard-card-content">
+             <!--content of card: title, img, description and botton detail-->
+             <mat-card-title class="center">
+               <h2 [style.overflow]="'auto'" [style.height.px]="'80'"><b>{{ricetta.name}}</b></h2>
+             </mat-card-title>    
+           </mat-card-content>
+         </mat-card>
+       </mat-grid-tile>
+
+ </div>
+ </mat-grid-list>
+ </div>
+ 
+ 
+ 
+ <!--definition grid container-->
+ <div class="grid-container" >
+   <!--grid with mobile definition cols. In mobile 1 cols, in desktop version 5 cols. and fix row heigth-->
+     <mat-grid-list [cols]="isMobile ? 1 : 5" rowHeight="260px" >
+       <!--ng-container implemets ngfor for data (categories of food) and isn't connected to html tag (not burdens to html layout)-->
+       <div *ngIf="ricetta">
+          
+           <!--ng for for all type of cards definited in home.compnent.ts-->
+       <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+         <!--generate card-->    
+         <mat-card class="dashboard-card backgroundColor">
+           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+           <mat-card-content class="dashboard-card-content">
+             <!--content of card: title, img, description and botton detail-->
+             <div class="img-container">
+                 <img mat-card-lg-image  [src]="ricetta.base64">
+               </div>
+           </mat-card-content>
+         </mat-card>
+       </mat-grid-tile>
+ 
+ 
+ 
+       <mat-grid-tile *ngFor="let card of cards1 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+         <!--generate card-->    
+         <mat-card class="dashboard-card">
+           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+           <mat-card-content class="dashboard-card-content">
+             <!--content of card: title, img, description and botton detail-->
+                 <div class="justify-text-description"  [style.overflow]="'auto'">
+                   <div class="column">
+                   <ul>
+                     <li *ngFor="let ingrediente of ricetta.allIngredients">{{ingrediente.quantity}} {{ingrediente.ingredient}}</li>
+                 </ul>
+               </div>
+               </div>
+           </mat-card-content>
+         </mat-card>
+       </mat-grid-tile>
+ 
+ 
+ 
+       <mat-grid-tile *ngFor="let card of cards3 | async" [colspan]="card.cols" [rowspan]="card.rows"> 
+         <!--generate card-->    
+         <mat-card class="dashboard-card">
+           <!--style overflow insert the scrollbarr and style height define the scrollbar height-->
+           <mat-card-content class="dashboard-card-content">
+             <!--content of card: title, img, description and botton detail-->        
+                 <div class="justify-text-description"  [style.overflow]="'auto'" [style.height.px]="'220'">
+                   <p>{{ricetta.description}}</p>
+               </div>
+           </mat-card-content>
+         </mat-card>
+       </mat-grid-tile>
+
+   </div>
+     </mat-grid-list>
+ 
+     <div mat-dialog-actions>
+       <button mat-button (click)="dialog.closeAll()">Close</button>
+     </div>
+ 
+ </div>
+ </ng-template>

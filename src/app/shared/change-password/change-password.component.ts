@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth-service.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'rsc-change-password',
@@ -8,9 +9,19 @@ import { AuthService } from '../services/auth-service.service';
 })
 export class ChangePasswordComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+
+  constructor(public authService: AuthService, public matDialog: MatDialog) { }
 
   ngOnInit(): void {
   }
+
+  changePassword(){
+    this.authService.changePassword();
+    this.closeDialog();
+  }
+  closeDialog() {
+    this.matDialog.closeAll();
+  }
+
 
 }

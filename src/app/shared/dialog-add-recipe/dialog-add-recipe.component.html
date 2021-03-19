@@ -16,7 +16,7 @@
   </mat-form-field>
 
             <mat-form-field class="example-full-width">
-              <mat-label>Receip Name</mat-label>
+              <mat-label>Recipe Name</mat-label>
               <input matInput  formControlName="name" placeholder="Add name" required>
             </mat-form-field>
           
@@ -95,14 +95,14 @@
           </div>
   
             <mat-form-field class="example-full-width">
-              <mat-label>Describe your receip</mat-label>
+              <mat-label>Describe your recipe</mat-label>
               <textarea  rows="10" matInput formControlName="description" placeholder="Add all passages" required></textarea>
             </mat-form-field>
   
          
           <div class="example-button-row">
           
-          <button (click)="fine()" mat-fab color="primary" [disabled]="!recepiForm.valid" >End</button>
+          <button (click)="fine()" mat-fab color="primary" [disabled]="!recepiForm.valid" >Save</button>
           <button (click)="fire.closeDialog()" mat-fab color="warn">Close</button>
   
         </div>

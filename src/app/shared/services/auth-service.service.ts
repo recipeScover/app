@@ -6,11 +6,7 @@ import { Router } from '@angular/router';
 //import mat material dialog
 import {MatDialog} from '@angular/material/dialog';
 // import Component of our material Dialog
-import { InsertDisplayNameComponent } from '../../shared/insert-display-name/insert-display-name.component'
-import { ChangePasswordComponent } from '../change-password/change-password.component';
-import { Recipe, UserImg } from './user';
-import { DialogProfilImgComponent } from '../dialog-profil-img/dialog-profil-img.component';
-import { DialogAddRecipeComponent } from '../dialog-add-recipe/dialog-add-recipe.component';
+import { Recipe, User, UserImg } from './user';
 
 
 @Injectable({
@@ -24,6 +20,7 @@ export class AuthService {
   imgProf: string= 'url("../../../assets/user-profile.jpg")';
   userImg: any=[];
   userRecipe: Recipe[] | undefined;
+  user: any;
 
 
   constructor(public firebaseAuth: AngularFireAuth, public router: Router, public afs: AngularFirestore, public dialog: MatDialog) { }
@@ -37,10 +34,8 @@ export class AuthService {
       this.isLoggedIn = true; // sono loggato
       this.router.navigateByUrl('myHomePage');
       this.displayN= res.user?.displayName;
+      this.user=res.user;
 
-      if(res.user?.displayName == null || res.user?.displayName==''){
-        this.openDialog();
-      }
       this.getImg();
       localStorage.setItem('user',JSON.stringify(res.user))
       alert("You are logged!!!!");
@@ -65,9 +60,6 @@ export class AuthService {
 
 
 
-  openDialog() {
-    this.dialog.open(InsertDisplayNameComponent, { disableClose: true });
-  }
   closeDialog() {
     this.dialog.closeAll();
   }
@@ -132,23 +124,6 @@ async resetPassword(email: string) {
 
 
 
-openDialogChangeImg() {
-  this.dialog.open(DialogProfilImgComponent);
-}
-
-openDialogAddRecipe() {
-  this.dialog.open(DialogAddRecipeComponent);
-}
-
-
-openDialogUpdate(ricetta: Recipe){
-  this.dialog.open(DialogAddRecipeComponent, {
-    data: {
-      ricetta: ricetta
-    }
-  });
-}
-
 
 
   
@@ -165,18 +140,13 @@ openDialogUpdate(ricetta: Recipe){
 //Al click si apre la dialog con alert
 //Se si mi aggancio al changePassword altrimenti chiudo la dialog
 
-openDialogChangePsw() {
-    this.dialog.open(ChangePasswordComponent, { disableClose: true });
-  }
 
 
 
 changePassword(){
  this.resetPassword(this.email);
   this.logout();
-  this.closeDialog();
   alert("Email received to change password");
-
 }
 
 
@@ -210,6 +180,23 @@ createRecipe(ricetta: Recipe){
 getRecipe() {
   return this.afs.collection('userRecipe',ref => ref.where('user','==', this.email )).get();
 }
+
+
+
+
+getData(){
+  return this.getRecipe().subscribe(data => this.userRecipe = data.docs.map(e => {
+    return {
+     id: e.id,
+     ... e.data() as any
+    } as Recipe;
+  }));
+  
+
+}
+
+
+
 
 updateRecipe(dati: Recipe, id:string) {
   this.afs.doc('userRecipe/' + id).update(dati);
