@@ -1,14 +1,12 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://www.themealdb.com/api/json/v1/1'
-};
-const firebaseConfig = {
-  apiKey: "AIzaSyDcWzBiMlwKl1GwMFUDvHvzZqlMvNXDl_0",
-  authDomain: "angular-portfolio-521bb.firebaseapp.com",
-  databaseURL: "https://angular-portfolio-521bb-default-rtdb.firebaseio.com",
-  projectId: "angular-portfolio-521bb",
-  storageBucket: "angular-portfolio-521bb.appspot.com",
-  messagingSenderId: "972889278105",
-  appId: "1:972889278105:web:7de43f10f02d5fba9c9a08",
-  measurementId: "G-R2CM65ETDX"
+  apiUrl: 'https://www.themealdb.com/api/json/v1/1',
+  firebaseConfig:{
+    apiKey: "AIzaSyCc7OL6rBhOduQn4CU10LtGyq6nZsjnrXk",
+    authDomain: "food-app-login.firebaseapp.com",
+    projectId: "food-app-login",
+    storageBucket: "food-app-login.appspot.com",
+    messagingSenderId: "801313107348",
+    appId: "1:801313107348:web:4cca5a054f1b4ee81a3381"
+  }
 };

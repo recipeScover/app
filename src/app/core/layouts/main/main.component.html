@@ -6,8 +6,9 @@
       >
       <!-- responsive / mobile -->
       <!-- se è  responsive mi trovo nell'hamburger -->
-
-    <mat-toolbar>Menu <button class="close" mat-button (click)="drawer.toggle()">X</button></mat-toolbar>
+    <p class="copy">Angelo & Daniele &copy; 2021</p>
+    <mat-toolbar>
+    Menu <button class="close" mat-button (click)="drawer.toggle()">X</button></mat-toolbar>
     <!-- nella dashboard laterale se non siamo loggati vedo il pulsante login -->
     <!-- nella dashboard laterale se siamo loggati vedo la mia mail e il pulsante logout -->
     <!-- (isHandset$ | async) -> mi riferisco al mobile --> <!-- se è mobile vedo la scritta login in menu,altrimenti la vedo in versione deskop -->
@@ -54,6 +55,7 @@
     </div>
     </div>
     </mat-toolbar>
+
 
     <router-outlet></router-outlet>
   </mat-sidenav-content>
