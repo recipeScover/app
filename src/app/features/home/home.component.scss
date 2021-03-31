@@ -38,6 +38,8 @@
   //img auto width to see original rapport heigth*width
   img{
     width: auto !important;
+    max-width: 100% !important;
+    height: auto !important;
   }
 
   //change layout and color of scroll barr container
